@@ -6,9 +6,11 @@
 
 Run a newly-created (i.e. homepage-less) TomEE Dynamic Web Project (DWP) **_with a JPA facet_** in Eclipse.
 
+The project name is TomeeDemo3.
+
 ### Expected behavior
 
-A browser window opens, navigating to http://localhost:8080/TomeeDemo2/, and displaying a "404" page supplied by TomEE
+A browser window opens, navigating to http://localhost:8080/TomeeDemo3/, which displays a "404" page supplied by TomEE.
 
 ### Reason for expecting this behavior
 
@@ -16,7 +18,12 @@ This is the behavior I observed when I ran a newly-created TomEE DWP **_without 
 
 ### Actual behavior
 
-Eclipse 
+* Eclipse displays a small "Problem Occurred" popup window with no useful information.
+* A browser window opens, navigating to http://localhost:8080/TomeeDemo3/, which displays a "local host connection refused" page supplied by Microsoft Edge.
+
+![eclipse problem occurred popup](https://github.com/wharvex/DebugJournal/blob/main/Entry1/eclipse_problem-occurred.png)
+
+![edge localhost connection refusal page](https://github.com/wharvex/DebugJournal/blob/main/Entry1/edge_refusal.png)
 
 ### Error received
 
