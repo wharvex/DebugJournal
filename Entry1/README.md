@@ -2,11 +2,21 @@
 
 ## Entry 1
 
+### Project name
+
+TomeeDemo3
+
 ### Goal
 
 Run a newly-created (i.e. homepage-less) TomEE Dynamic Web Project (DWP) **_with a JPA facet_** in Eclipse.
 
-The project name is TomeeDemo3.
+### Goal achieved?
+
+No.
+
+### Main error
+
+java.lang.NoClassDefFoundError: org/eclipse/persistence/internal/jaxb/WrappedValue
 
 ### Expected behavior
 
@@ -18,16 +28,15 @@ This is the behavior I observed when I ran a newly-created TomEE DWP **_without 
 
 ### Actual behavior
 
-* Eclipse displays a small "Problem Occurred" popup window with no useful information.
+* Eclipse displays a small "Problem Occurred" popup window mentioning what seems like a task name/description.
 * A browser window opens, navigating to http://localhost:8080/TomeeDemo3/, which displays a "local host connection refused" page supplied by Microsoft Edge.
+* The console view produces a stack trace.
 
 ![eclipse problem occurred popup](https://github.com/wharvex/DebugJournal/blob/main/Entry1/eclipse_problem-occurred.png)
 
 ![edge localhost connection refusal page](https://github.com/wharvex/DebugJournal/blob/main/Entry1/edge_refusal.png)
 
-### Error received
-
-java.lang.NoClassDefFoundError: org/eclipse/persistence/internal/jaxb/WrappedValue
+[console output](https://github.com/wharvex/DebugJournal/blob/main/Entry1/console_output.txt)
 
 ### Steps to reproduce
 
