@@ -55,65 +55,70 @@ This is the behavior I observed when I ran a newly-created TomEE DWP **_without 
 ### Steps to reproduce
 
 1. Open 
-1. File -> New -> Dynamic Web Project
-1. Wizard: New Dynamic Web Project
-    1. Page: Dynamic Web Project
-        1. Textbox: Project name
-            1. TomeeDemo3
-        1. Section: Project location
-            1. Checkbox: Use default location
+1. File `->` New `->` Dynamic Web Project
+1. Wizard -- New Dynamic Web Project
+    1. Page -- Dynamic Web Project
+        1. Textbox -- Project name
+            1. Enter: TomeeDemo3
+        1. Section -- Project location
+            1. Checkbox -- Use default location
+                1. Do: Uncheck
+            1. Textbox -- Location
+                1. Enter: Some custom filepath
+        1. Section -- Target runtime
+            1. Dropdown
+                1. Select: TomEE (I made this runtime profile earlier using my local installation of TomEE)
+        1. Section -- Dynamic web module version (this is one of the facets)
+            1. Dropdown
+                1. Select: 6.0 (There are several other options, this is the latest one)
+        1. Section -- Configuration
+            1. Dropdown
+                1. Select: Default Configuration for TomEE
+            1. Click: Modify `->` "Project Facets" window pops up
+            1. Window -- Project Facets
+                1. Panel -- Facets
+                    1. Check: Dynamic Web Module; Select: 6.0
+                    1. Check: Java; Select: 21
+                    1. Check: JavaScript; Select: 1.0
+                    1. Check: JPA; Select: 3.1
+                    1. _NEXT STEPS IDEA: JAXB facet is also available here, I did not check it, I could try that_
+                1. Panel -- Runtimes
+                    1. Check: TomEE (only option)
+                1. Click: OK `->` "Project Facets" window closes, Configuration dropdown now has `<custom>` selected
+        1. Section -- EAR membership
+            1. Inaccessible
+        1. Section -- Working sets
+            1. Checkbox -- Add project to working sets
+                1. Do: Uncheck
+        1. Click: Next
+    1. Page -- Java
+        1. Section -- Source folders on build path
+            1. Ensure exactly 1 entry for: src\main\java
+        1. Textbox -- Default output folder
+            1. Enter: src\main\webapp\WEB-INF\classes
+        1. Click: Next
+    1. Page -- JPA Facet
+        1. Section: Platform
+            1. Dropdown
+                1. Generic 3.1 (only option)
+        1. Section: JPA implementation
+            1. Dropdown: Type
+                1. User Library
+                1. _NEXT STEPS IDEA: "Disable Library Configuration" is also an option, I could try that_
+            1. "EclipseLink 4.0.2" is checked (I downloaded this previously with the "Download library..." button)
+            1. Checkbox: Include libraries with this application
+                1. Checked
+        1. Section: Connection
+            1. Dropdown
+                1. oracon2 (I made this connection profile previously)
+                1. _NEXT STEPS IDEA: None is also an option. I could try that._
+            1. Checkbox: Add driver library to build path
                 1. Unchecked
-            1. Textbox: Location
-                1. Some custom filepath (this shouldn't matter)
-        1. Section: Target runtime
-            1. Dropdown
-                1. TomEE (I made this runtime profile earlier using my local installation of TomEE)
-        1. Section: Dynamic web module version
-            1. Dropdown
-                1. 6.0 (There are several other options, this is the latest one)
-            1. (Also appears in project facets window, see below)
-        1. Section: Configuration
-            1. Dropdown
-                1. Default Configuration for TomEE
-            1. Click "Modify" -> "Project Facets" window pops up
-            1. Window: Project Facets
-                1. Panel: Facets
-                    1. "Dynamic Web Module" is checked, "6.0" is selected
-                    1. "Java" is checked, "21" is selected
-                    1. "JavaScript" is checked, "1.0" is selected
-                    1. "JPA" is checked, "3.1" is selected
-                    1. _NEXT STEPS IDEA: JAXB facet is also available here, I did not choose it, but maybe I should have?_
-                1. Panel: Runtimes
-                    1. "TomEE" is checked
-                1. Click OK -> "Project Facets" window closes, Configuration dropdown now has `<custom>` selected.
-        1. Section: EAR membership
-            1. Disabled
-        1. Section: Working sets
-            1. Checkbox: Add project to working sets
-                1. Unchecked
+                    1. I unchecked this because when I check it, I have to choose a driver from a dropdown menu, but the driver I have associated with the oracon2 connection does not appear in that drop-down menu, maybe becuase it is a "Generic JDBC driver".
+        1. Section: Persistent class management
+            1. Radio button group
+                1. Annotated classes must be listed in persistence.xml
         1. Click Next
-        1. "Dynamic web module version" section
-        1. Modify default TomEE config to add JPA facet
-    1. Click Next
-    1. Java page
-        1. Source folders on build path:
-            1. src\main\java
-            1. Default output folder:
-                1. src\main\webapp\WEB-INF\classes
-    1. JPA Facet page
-        1. Platform: Generic 3.1 (only option)
-        1. JPA implementation section
-            1. Type: User Library
-            1. "Disable Library Configuration" is also an option. I could try that.
-            1. EclipseLink 4.0.2 is checked (I downloaded this previously with the "Download library..." button)
-            1. "Include libraries with this application" is checked
-        1. Connection section
-            1. oracon2
-                1. None is also an option
-                1. When I choose oracon2, a little tooltip appears at the top that says: "Connection must be active to get data source specific help and validation."
-            1. "Add driver library to build path" is unchecked
-                1. I unchecked this because when I check it, I have to choose a driver from a dropdown menu, but the driver I have associated with the oracon2 connection does not appear in that drop-down menu, maybe becuase it is a "Generic JDBC driver".
-    1. Click Next
     1. Web Module page
         1. Context root: TomeeDemo3
         1. Content directory: src/main/webapp
