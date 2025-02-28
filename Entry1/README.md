@@ -2,13 +2,27 @@
 
 ## Entry 1
 
+### System details
+
+OS: Windows 11 Professional
+
+Eclipse: "Eclipse IDE for Enterprise Java and Web Developers" Version: 2024-12 (4.34.0)
+
+Java: Adoptium 21
+
+TomEE: 10.0
+
+Oracle DB: 21c XE
+
 ### Project name
 
 TomeeDemo3
 
 ### Goal
 
-Run a newly-created (i.e. homepage-less) TomEE Dynamic Web Project (DWP) **_with a JPA facet_** in Eclipse.
+Run a newly-created TomEE Dynamic Web Project (DWP) **_with a JPA facet_** in Eclipse.
+
+It is newly-created in the sense that it does not have any static homepage, it does not have a servlet, it does not even have a main Java package. I completed the DWP creation wizard, closed the project, closed Eclipse, opened Eclipse, opened the project, and then tried to run it.
 
 ### Goal achieved?
 
@@ -40,16 +54,52 @@ This is the behavior I observed when I ran a newly-created TomEE DWP **_without 
 
 ### Steps to reproduce
 
-1. Open "Eclipse IDE for Enterprise Java and Web Developers" Version: 2024-12 (4.34.0)
+1. Open 
 1. File -> New -> Dynamic Web Project
-1. DWP creation wizard
-    1. Enter project name
-    1. Choose project location
-    1. Choose Target runtime
-        1. TomEE
-    1. Modify default TomEE config to add JPA facet
-        1. JAXB facet is also available here, I did not choose it, but maybe I should have?
-    1. Click Next twice
+1. Wizard: New Dynamic Web Project
+    1. Page: Dynamic Web Project
+        1. Textbox: Project name
+            1. TomeeDemo3
+        1. Section: Project location
+            1. Checkbox: Use default location
+                1. Unchecked
+            1. Textbox: Location
+                1. Some custom filepath (this shouldn't matter)
+        1. Section: Target runtime
+            1. Dropdown
+                1. TomEE (I made this runtime profile earlier using my local installation of TomEE)
+        1. Section: Dynamic web module version
+            1. Dropdown
+                1. 6.0 (There are several other options, this is the latest one)
+            1. (Also appears in project facets window, see below)
+        1. Section: Configuration
+            1. Dropdown
+                1. Default Configuration for TomEE
+            1. Click "Modify" -> "Project Facets" window pops up
+            1. Window: Project Facets
+                1. Panel: Facets
+                    1. "Dynamic Web Module" is checked, "6.0" is selected
+                    1. "Java" is checked, "21" is selected
+                    1. "JavaScript" is checked, "1.0" is selected
+                    1. "JPA" is checked, "3.1" is selected
+                    1. _NEXT STEPS IDEA: JAXB facet is also available here, I did not choose it, but maybe I should have?_
+                1. Panel: Runtimes
+                    1. "TomEE" is checked
+                1. Click OK -> "Project Facets" window closes, Configuration dropdown now has `<custom>` selected.
+        1. Section: EAR membership
+            1. Disabled
+        1. Section: Working sets
+            1. Checkbox: Add project to working sets
+                1. Unchecked
+        1. Click Next
+        1. "Dynamic web module version" section
+        1. Modify default TomEE config to add JPA facet
+    1. Click Next
+    1. Java page
+        1. Source folders on build path:
+            1. src\main\java
+            1. Default output folder:
+                1. src\main\webapp\WEB-INF\classes
     1. JPA Facet page
         1. Platform: Generic 3.1 (only option)
         1. JPA implementation section
