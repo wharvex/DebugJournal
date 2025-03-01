@@ -126,3 +126,16 @@ A browser window opens, navigating to `http://localhost:8080/TomeeDemo4/`, which
 1. The project generates
     1. If there is a problem in the problems view "Downloading external resources is disabled", go to Window `->` Preferences `->` XML (Wild Web Developer) `->` Check "Download external resources like referenced DTD, XSD"
 1. Right-click project, then click "Run As", then click "Run on server"
+
+### Thoughts
+
+1. OpenJPA does appear in the console output.
+    1. INFO: You have enabled runtime enhancement, but have not specified the set of persistent classes.  OpenJPA must look for metadata for every loaded class, which might increase class load times significantly.
+    1. INFO: OpenJPA dynamically loaded a validation provider.
+1. Does OpenJPA appear in the console output for entry 1?
+    1. No! That's encouraging. It seems to suggest that TomEE "fell back" to OpenJPA when I didn't choose a user library for the JPA implementation, which is what I was hoping would happen.
+
+### Next Steps
+
+1. Make a JDBC hello world
+1. Make a JPA hello world
