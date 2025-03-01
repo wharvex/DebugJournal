@@ -18,6 +18,10 @@ Oracle DB: 21c XE
 
 TomeeDemo4
 
+### Retry of
+
+[Entry 1](https://github.com/wharvex/DebugJournal/tree/main/Entry1)
+
 ### Goal
 
 Run a newly-created TomEE Dynamic Web Project (DWP) **_with a JPA facet_** in Eclipse.
@@ -36,7 +40,7 @@ N/A
 
 ### Expected behavior
 
-A browser window opens, navigating to http://localhost:xxxx/TomeeDemo3/, which displays a "404" page supplied by TomEE.
+A browser window opens, navigating to `http://localhost:<port number>/<project name>/`, which displays a "404" page supplied by TomEE.
 
 ### Reason for expecting this behavior
 
@@ -44,7 +48,11 @@ This is the behavior I observed when I ran a newly-created TomEE DWP **_without 
 
 ### Actual behavior
 
-A browser window opens, navigating to http://localhost:xxxx/TomeeDemo3/, which displays a "404" page supplied by TomEE.
+A browser window opens, navigating to `http://localhost:8080/TomeeDemo4/`, which displays a "404" page supplied by TomEE.
+
+![TomEE 404 page](https://github.com/wharvex/DebugJournal/blob/main/Entry2/tomee404.png)
+
+[Console output](https://github.com/wharvex/DebugJournal/blob/main/Entry2/console_output.txt)
 
 ### Steps to reproduce
 
@@ -75,7 +83,6 @@ A browser window opens, navigating to http://localhost:xxxx/TomeeDemo3/, which d
                     1. Check: Java; Select: 21
                     1. Check: JavaScript; Select: 1.0
                     1. Check: JPA; Select: 3.1
-                    1. _[NEXT STEPS IDEA] JAXB facet is also available here, I did not check it, I could try that_
                 1. Box -- Runtimes (select "Runtimes" tab)
                     1. Check: TomEE (only option)
                 1. Click: OK `->` "Project Facets" window closes, Configuration dropdown now has `<custom>` selected
@@ -101,7 +108,6 @@ A browser window opens, navigating to http://localhost:xxxx/TomeeDemo3/, which d
         1. Section -- Connection
             1. Dropdown
                 1. Select: oracon2 (I made this connection profile previously, it works)
-                1. _[NEXT STEPS IDEA] None is also an option, I could try that_
             1. Checkbox -- Add driver library to build path
                 1. Do: Uncheck
                     1. I unchecked this because when I check it, I have to choose a driver from a dropdown menu, but the driver I have associated with the oracon2 connection does not appear in that drop-down menu, maybe becuase it is a "Generic JDBC driver".
