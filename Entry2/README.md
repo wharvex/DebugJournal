@@ -137,5 +137,6 @@ A browser window opens, navigating to `http://localhost:8080/TomeeDemo4/`, which
 
 ### Next Steps
 
+1. Make a Servlet hello world
 1. Make a JDBC hello world
 1. Make a JPA hello world
